@@ -16,7 +16,7 @@
 
 <style lang="scss">
   @import './variables/variaveis.css';
-  @import './variables/fonts.css';
+  @import './fonts/fonts.css';
   
   * {
     box-sizing: boder-box;
@@ -35,5 +35,10 @@
 
   span {
     margin: 0;
+  }
+
+  .container {
+    max-width: 1216px;
+    margin: 0 auto;
   }
 </style>
