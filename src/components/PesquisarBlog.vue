@@ -21,7 +21,7 @@
       position: absolute;
       top: 15px;
       left: 15px;
-      z-index: 10;
+      z-index: 11;
       border: none;
       background: transparent;
       outline: none;
