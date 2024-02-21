@@ -1,13 +1,17 @@
 <template>
   <div class="header">
-    teste
+    <LogoMarca class="logo"/>
   </div>
 </template>
 
 <script>
-export default {
+  import LogoMarca from '../components/LogoMarca.vue';
 
-}
+  export default {
+    components: {
+      LogoMarca
+    }
+  }
 </script>
 
 <style lang="scss">
@@ -15,5 +19,10 @@ export default {
     width: 100%;
     background: #17171A;
     padding: 40px 0;
+
+    .logo {
+      display: flex;
+      justify-content: center;
+    }
   }
 </style>

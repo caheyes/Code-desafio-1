@@ -15,14 +15,22 @@
 </script>
 
 <style lang="scss">
+  @import './variables/variaveis.css';
+  @import './variables/fonts.css';
+  
+  * {
+    box-sizing: boder-box;
+    padding: 0; 
+    margin: 0;
+  }
+
   body {
     background: #121214;
-    margin: 0;
-    padding: 0;
   }
 
   p {
     margin: 0;
+    color: var(--title);
   }
 
   span {
