@@ -1,14 +1,15 @@
-import { createStore } from 'vuex'
+import { createStore } from 'vuex';
 
 export default createStore({
   state: {
+    blogs: [],
   },
-  getters: {
-  },
+  getters: {},
   mutations: {
+    listarBlogs(state) {
+      state.blogs = 'Ave';
+    },
   },
-  actions: {
-  },
-  modules: {
-  }
-})
+  actions: {},
+  modules: {},
+});

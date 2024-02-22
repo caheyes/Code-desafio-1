@@ -1,7 +1,9 @@
 <template>
   <div class="ctn-pesquisa">
     <button class="btn-pesquisa" type="submit">
-      <span class="material-symbols-outlined icone">search</span>
+      <icone-item :icone="'search'" 
+        :estilo="'color: #E07B67; font-size: 32px;'"
+      ></icone-item>
     </button>
     <input type="search" placeholder="Pesquisar no blog" class="campo-pesquisa">
   </div>
@@ -19,18 +21,13 @@
 
     .btn-pesquisa {
       position: absolute;
-      top: 15px;
-      left: 15px;
+      top: 30px;
+      left: 30px;
       z-index: 11;
       border: none;
       background: transparent;
       outline: none;
       cursor: pointer;
-
-      .icone {
-        color: #E07B67;
-        font-size: 32px;
-      }
     }
 
     .campo-pesquisa {

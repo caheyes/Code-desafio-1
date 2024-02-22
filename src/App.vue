@@ -40,5 +40,6 @@
   .container {
     max-width: 1216px;
     margin: 0 auto;
+    padding: 16px;
   }
 </style>
