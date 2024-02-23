@@ -17,16 +17,11 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex';
+
   export default {
-    props: {
-      listaNoticias: {
-        type: Array
-      }
-    },
     computed: {
-      blogs() {
-        return this.listaNoticias;
-      }
+      ...mapState(['blogs']),
     },
   }
 </script>
