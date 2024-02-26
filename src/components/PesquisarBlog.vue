@@ -1,17 +1,35 @@
 <template>
   <div class="ctn-pesquisa">
-    <button class="btn-pesquisa" type="submit">
+    <button class="btn-pesquisa" type="submit" @click="buscarBlog">
       <icone-item :icone="'search'" 
         :estilo="'color: #E07B67; font-size: 32px;'"
       ></icone-item>
     </button>
-    <input type="search" placeholder="Pesquisar no blog" class="campo-pesquisa">
+    <input type="search" placeholder="Pesquisar no blog" class="campo-pesquisa" v-model="valorPesquisa" @keyup.enter="buscarBlog">
   </div>
 </template>
 
 <script>
-  export default {
+  import { mapState, mapMutations, mapActions } from 'vuex';
 
+  export default {
+    data() {
+      return {
+        valorPesquisa: '',
+        listaPesquisada: []
+      }
+    },
+    computed: {
+      ...mapState(['blogs']),
+    },
+    methods: {
+      ...mapMutations(['GET_BLOGS']),
+      ...mapActions(['listarBlogsPesquisados']),
+
+      buscarBlog() {
+        this.listarBlogsPesquisados(this.valorPesquisa);
+      }
+    }
   }
 </script>
 

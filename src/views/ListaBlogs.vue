@@ -17,12 +17,52 @@
 </template>
 
 <script>
-  import { mapState } from 'vuex';
+  import { mapState, mapMutations } from 'vuex';
 
   export default {
+    props: {
+      carregando: {
+        type: Boolean
+      }
+    },
     computed: {
       ...mapState(['blogs']),
     },
+    mounted() {
+      this.listarBlogs();
+    },
+    methods: {
+      ...mapMutations(['GET_BLOGS', 'GET_BLOGS_LISTA_ORIGINAL']),
+      // ...mapActions(['acaoExemploPuxarBlogs']), //caso eu fosse puxar uma action
+
+      //get
+      listarBlogs() {
+        // this.$emit('update:carregando', true);
+
+        let url = 'http://servicodados.ibge.gov.br/api/v3/noticias/';
+
+        fetch(url)
+          .then(async (res) => {
+            const json = await res.json();
+            let noticias = json.items.map(blog => ({
+              id: blog.id,
+              curtido: false,
+              data: this.$formatarDataNomeMes(blog.data_publicacao),
+              titulo: blog.titulo,
+              texto: blog.introducao
+            }));
+
+            this.GET_BLOGS(noticias);
+            this.GET_BLOGS_LISTA_ORIGINAL(noticias);
+          })
+          .catch(error => {
+            console.error('Erro ao carregar os blogs:', error);
+          })
+          .finally(() => {
+            // this.$emit('update:carregando', false);
+          });
+      }
+    }
   }
 </script>
 
