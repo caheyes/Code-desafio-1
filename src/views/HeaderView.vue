@@ -22,6 +22,7 @@ import PesquisarBlog from '../components/PesquisarBlog.vue';
     width: 100%;
     background: #17171A;
     padding: 60px 0;
+    margin-bottom: 60px;
 
     .logo {
       display: flex;
